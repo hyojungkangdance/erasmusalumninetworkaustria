@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erasmus Alumni Network Austria | Das Netzwerk der Erasmus-Alumni-Verbände in Österreich</title>
+  <meta name="description" content="Das Erasmus Alumni Network Austria vernetzt Erasmus-Alumni, Alumni-Clubs und Hochschulstrukturen in Österreich.">
+  <meta property="og:title" content="Erasmus Alumni Network Austria">
+  <meta property="og:description" content="Das Netzwerk der Erasmus-Alumni-Verbände in Österreich.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erasmusalumni.network/">
+  <meta name="theme-color" content="#00aeef">
+  <link rel="icon" type="image/png" href="assets/img/esnstar_digital_full_colour_0.png">
+  <link rel="apple-touch-icon" href="assets/img/esnstar_digital_full_colour_0.png">
+  <style>
+    :root {
+      --blue: #00aeef;
+      --dark-blue: #12355b;
+      --deep: #0f2742;
+      --yellow: #ffd24d;
+      --bg: #f6fbfe;
+      --text: #1f2937;
+      --muted: #5f6f82;
+      --white: #ffffff;
+      --line: #dcebf5;
+      --shadow: 0 18px 45px rgba(18, 53, 91, 0.12);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 54px;
+      height: 54px;
+      display: block;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: var(--deep);
+      font-size: 1rem;
+      line-height: 1.15;
+    }
+
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.25;
+    }
+
+    .nav-toggle {
+      display: none;
+      border: 0;
+      background: var(--dark-blue);
+      color: white;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: var(--dark-blue);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+
+    .main-nav a:hover,
+    .main-nav a:focus-visible {
+      background: #eaf7fd;
+      outline: none;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 10%, rgba(255, 210, 77, 0.42), transparent 28%),
+        radial-gradient(circle at 8% 12%, rgba(0, 174, 239, 0.20), transparent 30%),
+        linear-gradient(145deg, #ffffff 0%, #eef9fd 100%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 86px 22px 72px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 7px 12px;
+      border: 1px solid rgba(0, 174, 239, 0.28);
+      border-radius: 999px;
+      color: var(--dark-blue);
+      background: rgba(255, 255, 255, 0.74);
+      font-weight: 800;
+      font-size: 0.86rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 0 0 4px rgba(255, 210, 77, 0.24);
+    }
+
+    h1 {
+      margin: 20px 0 18px;
+      color: var(--deep);
+      font-size: clamp(2.35rem, 7vw, 4.9rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-lead {
+      max-width: 720px;
+      color: #34495e;
+      font-size: clamp(1.06rem, 2vw, 1.24rem);
+      margin: 0 0 28px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--dark-blue);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 12px 28px rgba(18, 53, 91, 0.24);
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--dark-blue);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h2 {
+      margin-top: 0;
+      color: var(--deep);
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    .video-card {
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .stat {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .stat:first-of-type {
+      border-top: 0;
+    }
+
+    .stat-number {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #eaf7fd;
+      color: var(--dark-blue);
+      font-weight: 900;
+    }
+
+    main section {
+      scroll-margin-top: 86px;
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 72px 22px;
+    }
+
+    .section-header {
+      max-width: 780px;
+      margin-bottom: 30px;
+    }
+
+    .section-kicker {
+      margin: 0 0 8px;
+      color: var(--blue);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      color: var(--deep);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 14px 34px rgba(18, 53, 91, 0.08);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--deep);
+      font-size: 1.16rem;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, var(--dark-blue), #1d4f8f);
+      color: white;
+      border-radius: calc(var(--radius) + 8px);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight h2,
+    .highlight p {
+      color: white;
+    }
+
+    .highlight p {
+      margin-bottom: 0;
+      opacity: 0.92;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #eaf7fd;
+      color: var(--dark-blue);
+      font-weight: 750;
+      font-size: 0.92rem;
+    }
+
+    .university-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .alumni-notice {
+      background: #fff8df;
+      color: #604600;
+      border: 1px solid #ffe7a3;
+      border-radius: 18px;
+      padding: 16px 18px;
+      margin: 0 0 22px;
+    }
+
+    .alumni-toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 26px;
+    }
+
+    .alumni-toc a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--dark-blue);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 0.92rem;
+    }
+
+    .alumni-state {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 14px 34px rgba(18, 53, 91, 0.08);
+      margin-bottom: 22px;
+      overflow: hidden;
+    }
+
+    .alumni-head {
+      padding: 20px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, rgba(0, 174, 239, 0.10), rgba(255, 210, 77, 0.16));
+    }
+
+    .alumni-head h3 {
+      margin: 0;
+      color: var(--deep);
+      font-size: 1.28rem;
+    }
+
+    .alumni-head span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    .alumni-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+    }
+
+    .alumni-table th,
+    .alumni-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .alumni-table th {
+      background: #fbfcff;
+      color: var(--deep);
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .alumni-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .alumni-table td:first-child {
+      font-weight: 800;
+      color: var(--deep);
+    }
+
+    .alumni-table a {
+      color: var(--dark-blue);
+      font-weight: 800;
+    }
+
+    .uni-group {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .uni-group h3 {
+      margin: 0 0 12px;
+      color: var(--deep);
+    }
+
+    .uni-group ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .contact-box {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .contact-box p {
+      margin-top: 0;
+    }
+
+    footer {
+      background: var(--deep);
+      color: rgba(255, 255, 255, 0.84);
+      padding: 30px 22px;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    footer a {
+      color: white;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff8df;
+      color: #604600;
+      border: 1px solid #ffe7a3;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 820px) {
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .main-nav {
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 74px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: white;
+        box-shadow: var(--shadow);
+      }
+
+      .main-nav.is-open {
+        display: flex;
+      }
+
+      .main-nav a {
+        border-radius: 12px;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding-top: 58px;
+      }
+
+      .grid,
+      .university-list,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .brand-text span {
+        display: none;
+      }
+
+      .section {
+        padding: 54px 18px;
+      }
+
+      .hero-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .actions a {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Startseite Erasmus Alumni Network Austria">
+        <img class="brand-mark" src="assets/img/esnstar_digital_full_colour_0.png" alt="Erasmus Alumni Network Austria Logo">
+        <span class="brand-text">
+          <strong>Erasmus Alumni Network Austria</strong>
+          <span>Das Netzwerk der Erasmus-Alumni-Verbände in Österreich</span>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menü</button>
+      <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#unis-fhs">Unis/FHs</a>
+        <a href="#impressum">Impressum</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Erasmus-Alumni in Österreich</p>
+          <h1 id="hero-title">Erfahrungen verbinden. Europa weiterdenken.</h1>
+          <p class="hero-lead">Das Erasmus Alumni Network Austria ist das Netzwerk der Erasmus-Alumni-Verbände in Österreich. Es vernetzt Erasmus-Studierende, Alumni-Clubs und Hochschulstrukturen und macht europäische Mobilität nach dem Auslandsaufenthalt sichtbar.</p>
+          <div class="actions">
+            <a class="button" href="mailto:erasmusalumniaustria@gmail.com">Kontakt aufnehmen</a>
+            <a class="button secondary" href="#ueber-uns">Mehr erfahren</a>
+          </div>
+        </div>
+
+        <aside class="hero-card video-card" aria-label="YouTube-Video Erasmus Alumni Network Austria">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/Knc_6Rjm8nk"
+              title="Erasmus Alumni Network Austria Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="ueber-uns" aria-labelledby="about-title">
+      <div class="section-header">
+        <p class="section-kicker">Über uns</p>
+        <h2 id="about-title">Das Netzwerk der Erasmus-Alumni-Verbände in Österreich</h2>
+        <p class="muted">Das Erasmus Alumni Network Austria ist Teil von Erasmus Student Network Austria beziehungsweise der Europäischen Studierendenvereinigung in Österreich (EStÖ) und somit Teil der österreichischen NGO Bund Europäischer Jugend / Junge Europäische Föderalisten (BEJ/JEF) Österreich.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Unsere Mission</h3>
+          <p>Wir bringen Erasmus-Erfahrung, europäisches Engagement und Alumni-Strukturen zusammen. Ziel ist ein sichtbares, freundliches und professionelles Netzwerk für Menschen, die durch Erasmus Europa erlebt haben und verbunden bleiben möchten.</p>
+        </article>
+        <article class="card">
+          <h3>Für wen?</h3>
+          <p>Das Netzwerk richtet sich an Erasmus-Studierende, Erasmus-Alumni, Alumni-Clubs, Hochschulgruppen, Universitäten, Fachhochschulen und Partnerorganisationen in Österreich.</p>
+        </article>
+        <article class="card">
+          <h3>Mitgliedschaft</h3>
+          <p>Alle Erasmus-Studierenden sind in ihren Universitäten oder Fachhochschulen in Alumni-Clubs oder Verbänden organisiert und Mitglieder des Erasmus Alumni Network Austria.</p>
+        </article>
+      </div>
+
+      <div class="highlight" style="margin-top: 28px;">
+        <div>
+          <p class="section-kicker" style="color: var(--yellow);">Warum das wichtig ist</p>
+          <h2>Aus einem Auslandssemester wird ein dauerhaftes Netzwerk.</h2>
+          <p>Erasmus endet nicht mit der Rückkehr nach Österreich. Alumni können Kontakte, Erfahrungen und europäische Perspektiven weitergeben und dadurch neue Generationen von Studierenden stärken.</p>
+        </div>
+        <a class="button" style="background: var(--yellow); color: var(--deep); box-shadow: none;" href="mailto:erasmusalumniaustria@gmail.com">Mitmachen</a>
+      </div>
+    </section>
+
+    <section class="section" id="unis-fhs" aria-labelledby="unis-title">
+      <div class="section-header">
+        <p class="section-kicker">Unis/FHs</p>
+        <h2 id="unis-title">Alumni-Vereinigungen österreichischer Universitäten und Fachhochschulen</h2>
+        <p class="muted">Diese Übersicht sammelt öffentlich auffindbare Alumni-Vereine, Alumni-Clubs, Alumni-Services und Alumni-Netzwerke österreichischer Hochschulen. Die Liste ist nach Bundesland und Hochschule geordnet und dient als Arbeitsgrundlage für das Erasmus Alumni Network Austria.</p>
+      </div>
+
+      <nav class="alumni-toc" aria-label="Schnellnavigation Bundesländer">
+        <a href="#alumni-wien">Wien</a>
+        <a href="#alumni-niederoesterreich">Niederösterreich</a>
+        <a href="#alumni-oberoesterreich">Oberösterreich</a>
+        <a href="#alumni-steiermark">Steiermark</a>
+        <a href="#alumni-tirol">Tirol</a>
+        <a href="#alumni-salzburg">Salzburg</a>
+        <a href="#alumni-kaernten">Kärnten</a>
+        <a href="#alumni-vorarlberg">Vorarlberg</a>
+        <a href="#alumni-burgenland">Burgenland</a>
+      </nav>
+
+      <article class="alumni-state" id="alumni-wien">
+        <div class="alumni-head"><h3>Wien</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>Universität Wien</td><td><a href="https://alumni.ac.at/" target="_blank" rel="noopener noreferrer">Alumniverband / Alumni Community der Universität Wien</a></td></tr>
+              <tr><td>Technische Universität Wien</td><td><a href="https://www.tualumni.at/" target="_blank" rel="noopener noreferrer">TU Wien alumni club / TUalumni</a></td></tr>
+              <tr><td>Wirtschaftsuniversität Wien</td><td><a href="https://www.wu.ac.at/universitaet/organisation/wu-alumni/" target="_blank" rel="noopener noreferrer">WU Alumni</a></td></tr>
+              <tr><td>Medizinische Universität Wien</td><td><a href="https://www.meduniwien.ac.at/web/alumni-club/" target="_blank" rel="noopener noreferrer">Alumni Club der MedUni Wien</a></td></tr>
+              <tr><td>BOKU University</td><td><a href="https://alumni.boku.wien/" target="_blank" rel="noopener noreferrer">BOKU Alumni / Alumniverband</a></td></tr>
+              <tr><td>Veterinärmedizinische Universität Wien</td><td><a href="https://www.vetmeduni.ac.at/alumni" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk der Vetmeduni</a></td></tr>
+              <tr><td>Universität für Musik und darstellende Kunst Wien</td><td><a href="https://www.mdw.ac.at/alumni-relations/" target="_blank" rel="noopener noreferrer">Alumni Relations / Connect mdw</a></td></tr>
+              <tr><td>Universität für angewandte Kunst Wien</td><td><a href="https://www.dieangewandte.at/service/fuer_alumni" target="_blank" rel="noopener noreferrer">Alumni ARTist / Verein der Absolvent:innen</a></td></tr>
+              <tr><td>Akademie der bildenden Künste Wien</td><td><a href="https://www.akbild.ac.at/de/universitaet/absolvent_innen/alumniverein/alumniverein" target="_blank" rel="noopener noreferrer">Alumniverein der Akademie</a></td></tr>
+              <tr><td>Hochschule Campus Wien / FH Campus Wien</td><td><a href="https://www.hcw.ac.at/studium-weiterbildung/fuer-studierende/campusnetzwerk" target="_blank" rel="noopener noreferrer">Campusnetzwerk</a></td></tr>
+              <tr><td>FH Technikum Wien</td><td><a href="https://www.technikum-wien.at/alumni/" target="_blank" rel="noopener noreferrer">Alumni der FH Technikum Wien</a></td></tr>
+              <tr><td>FHWien der WKW</td><td><a href="https://www.fh-wien.ac.at/fachhochschule/alumni-career-services/" target="_blank" rel="noopener noreferrer">Alumni &amp; Career Services</a></td></tr>
+              <tr><td>FH des BFI Wien</td><td><a href="https://www.fh-vie.ac.at/de/seite/karrieremesse-unternehmenskooperation/datenschutz-alumni-datenbank" target="_blank" rel="noopener noreferrer">Alumni-Datenbank / Career Center für Absolvent:innen</a></td></tr>
+              <tr><td>Modul University Vienna</td><td><a href="https://www.modul.ac.at/about/academic-and-professional-community/alumni" target="_blank" rel="noopener noreferrer">Alumni Network</a></td></tr>
+              <tr><td>Webster Vienna Private University</td><td><a href="https://www.webster.ac.at/alumni/index.php" target="_blank" rel="noopener noreferrer">Webster Vienna Alumni Association</a></td></tr>
+              <tr><td>Musik und Kunst Privatuniversität Wien</td><td><a href="https://www.muk-alumni.at/" target="_blank" rel="noopener noreferrer">MUK.alumni</a></td></tr>
+              <tr><td>JAM MUSIC LAB Privatuniversität</td><td><a href="https://www.jammusiclab.com/de/alumni" target="_blank" rel="noopener noreferrer">Alumni Club / JAM Alumni Circle</a></td></tr>
+              <tr><td>Sigmund Freud PrivatUniversität</td><td><a href="https://www.sfu.ac.at/de/news/jus-gruendung-alumni-club/" target="_blank" rel="noopener noreferrer">Alumni Club, Rechtswissenschaftliche Fakultät</a></td></tr>
+              <tr><td>Central European University Vienna</td><td><a href="https://alumni.ceu.edu/" target="_blank" rel="noopener noreferrer">CEU Alumni Relations Office</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="alumni-state" id="alumni-niederoesterreich">
+        <div class="alumni-head"><h3>Niederösterreich</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>Universität für Weiterbildung Krems</td><td><a href="https://www.donau-uni.ac.at/de/universitaet/service/alumni-club.html" target="_blank" rel="noopener noreferrer">Alumni-Club</a></td></tr>
+              <tr><td>IMC Krems</td><td><a href="https://www.imc.ac.at/services/services-fuer-alumni/" target="_blank" rel="noopener noreferrer">IMC Alumni Network / Services für Alumni</a></td></tr>
+              <tr><td>FH Wiener Neustadt</td><td><a href="https://www.fhwn.ac.at/infos-fuer/alumni" target="_blank" rel="noopener noreferrer">FHWN Alumni Club</a></td></tr>
+              <tr><td>Ferdinand Porsche FERNFH</td><td><a href="https://www.fernfh.ac.at/alumni/" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk der FERNFH</a></td></tr>
+              <tr><td>FH St. Pölten / USTP</td><td><a href="https://www.ustp.at/de/audiences/graduates/alumni-netzwerk" target="_blank" rel="noopener noreferrer">Absolvent*innen Netzwerk</a></td></tr>
+              <tr><td>Karl Landsteiner Privatuniversität</td><td><a href="https://www.kl.ac.at/de/alumni" target="_blank" rel="noopener noreferrer">KL Alumni Club</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="alumni-state" id="alumni-oberoesterreich">
+        <div class="alumni-head"><h3>Oberösterreich</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>Johannes Kepler Universität Linz</td><td><a href="https://www.jku.at/alumni" target="_blank" rel="noopener noreferrer">JKU Alumni Club</a></td></tr>
+              <tr><td>FH Oberösterreich</td><td><a href="https://www.fh-ooe.club/" target="_blank" rel="noopener noreferrer">Alumni Club FH OÖ</a></td></tr>
+              <tr><td>FH Gesundheitsberufe OÖ</td><td><a href="https://www.fh-gesundheitsberufe.at/studieren/alumni" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk</a></td></tr>
+              <tr><td>Kunstuniversität Linz</td><td><a href="https://www.kunstuni-linz.at/universitaet/organisation/absolvent-innen/aktuelles" target="_blank" rel="noopener noreferrer">forum – Alumniverein der Kunstuniversität Linz</a></td></tr>
+              <tr><td>Anton Bruckner Privatuniversität</td><td><a href="https://www.bruckneruni.ac.at/de/alumni" target="_blank" rel="noopener noreferrer">Bruckner Alumni Netzwerk</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="alumni-state" id="alumni-steiermark">
+        <div class="alumni-head"><h3>Steiermark</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>Universität Graz</td><td><a href="https://alumni.uni-graz.at/de/" target="_blank" rel="noopener noreferrer">Alumni Community / alumni UNI graz</a></td></tr>
+              <tr><td>Technische Universität Graz</td><td><a href="https://alumni.tugraz.at/teilnehmen/" target="_blank" rel="noopener noreferrer">alumniTUGraz 1887</a></td></tr>
+              <tr><td>Medizinische Universität Graz</td><td><a href="https://www.medunigraz.at/alumniae" target="_blank" rel="noopener noreferrer">Alumni*ae / Alumni-Service</a></td></tr>
+              <tr><td>Montanuniversität Leoben</td><td><a href="https://www.alumni.unileoben.ac.at/" target="_blank" rel="noopener noreferrer">Alumni Club der Montanuniversität Leoben</a></td></tr>
+              <tr><td>FH JOANNEUM</td><td><a href="https://www.fh-joanneum.at/hochschule/services/alumni/" target="_blank" rel="noopener noreferrer">Alumni:ae / Alumni-Netzwerke</a></td></tr>
+              <tr><td>FH CAMPUS 02</td><td><a href="https://www.campus02.at/unsere-hochschule/zentrale-services/alumni-management/" target="_blank" rel="noopener noreferrer">Alumni Management</a></td></tr>
+              <tr><td>Kunstuniversität Graz</td><td><a href="https://csc-kug.at/studierende/home" target="_blank" rel="noopener noreferrer">Career Service Center für Studierende und Absolvent:innen</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="alumni-state" id="alumni-tirol">
+        <div class="alumni-head"><h3>Tirol</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>Universität Innsbruck</td><td><a href="https://www.uibk.ac.at/de/alumni/" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk</a></td></tr>
+              <tr><td>Medizinische Universität Innsbruck</td><td><a href="https://www.i-med.ac.at/alumn-i-med/" target="_blank" rel="noopener noreferrer">ALUMN-I-MED</a></td></tr>
+              <tr><td>MCI Innsbruck</td><td><a href="https://www.mci.edu/de/alumni/alumni-friends" target="_blank" rel="noopener noreferrer">MCI Alumni &amp; Friends</a></td></tr>
+              <tr><td>FH Kufstein Tirol</td><td><a href="https://www.fh-kufstein.ac.at/service/alumni" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="alumni-state" id="alumni-salzburg">
+        <div class="alumni-head"><h3>Salzburg</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>Universität Salzburg</td><td><a href="https://www.plus.ac.at/alumni/" target="_blank" rel="noopener noreferrer">PLUS Alumni Club</a></td></tr>
+              <tr><td>Universität Mozarteum Salzburg</td><td><a href="https://www.moz.ac.at/de/ueber-uns/alumni" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk</a></td></tr>
+              <tr><td>FH Salzburg</td><td><a href="https://www.fh-salzburg.ac.at/services/alumni-netzwerk" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk / Alumni-Club</a></td></tr>
+              <tr><td>Paracelsus Medizinische Privatuniversität</td><td><a href="https://www.pmu.ac.at/alumni-club" target="_blank" rel="noopener noreferrer">Alumni Club der PMU</a></td></tr>
+              <tr><td>Privatuniversität Schloss Seeburg</td><td><a href="https://www.uni-seeburg.at/universitaet/alumni/" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="alumni-state" id="alumni-kaernten">
+        <div class="alumni-head"><h3>Kärnten</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>Universität Klagenfurt</td><td><a href="https://www.aau.at/alumni-karriere/" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk</a></td></tr>
+              <tr><td>FH Kärnten</td><td><a href="https://www.fh-kaernten.at/fachhochschule/alumni-karriereservice/" target="_blank" rel="noopener noreferrer">Alumni &amp; Karriereservice / Alumni-Service</a></td></tr>
+              <tr><td>Gustav Mahler Privatuniversität</td><td><a href="https://www.gmpu.ac.at/universitaet/alumni" target="_blank" rel="noopener noreferrer">GMPU Alumni Netzwerk</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="alumni-state" id="alumni-vorarlberg">
+        <div class="alumni-head"><h3>Vorarlberg</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>FHV – Vorarlberg University of Applied Sciences</td><td><a href="https://www.fhv.at/fh/die-fhv/alumni" target="_blank" rel="noopener noreferrer">Alumni-Netzwerk der FHV</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="alumni-state" id="alumni-burgenland">
+        <div class="alumni-head"><h3>Burgenland</h3></div>
+        <div class="table-wrap">
+          <table class="alumni-table">
+            <thead><tr><th>Universität / Fachhochschule</th><th>Alumni-Vereinigung / Netzwerk</th></tr></thead>
+            <tbody>
+              <tr><td>Hochschule Burgenland / ehem. FH Burgenland</td><td><a href="https://hochschule-burgenland.at/studium-weiterbildung/nach-dem-studium/alumni/alumni-hochschule-burgenland/" target="_blank" rel="noopener noreferrer">alumni Hochschule Burgenland</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="impressum" aria-labelledby="impressum-title">
+      <div class="section-header">
+        <p class="section-kicker">Impressum</p>
+        <h2 id="impressum-title">Kontakt und rechtliche Angaben</h2>
+        <p class="muted">Diese Website ist eine erste Vorschau für das Erasmus Alumni Network Austria.</p>
+      </div>
+
+      <div class="contact-box">
+        <div>
+          <h3>Erasmus Alumni Network Austria</h3>
+          <p>Teil von Erasmus Student Network Austria / Europäische Studierendenvereinigung in Österreich (EStÖ)</p>
+          <p><strong>Sitz:</strong><br>Lassingleithnerplatz 2/3<br>1020 Wien<br>Österreich</p>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <p><strong>E-Mail:</strong><br><a href="mailto:erasmusalumniaustria@gmail.com">erasmusalumniaustria@gmail.com</a></p>
+          <p><strong>Website:</strong><br>erasmusalumni.network</p>
+          <p class="muted">Externe Links und eine vollständige rechtliche Datenschutzerklärung können in der finalen Version ergänzt werden.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Erasmus Alumni Network Austria</span>
+      <a href="#impressum">Impressum</a>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('#main-nav');
+    const year = document.querySelector('#year');
+
+    year.textContent = new Date().getFullYear();
+
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+</html>
